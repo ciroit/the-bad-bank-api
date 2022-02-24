@@ -1,0 +1,241 @@
+{
+    "swagger" : "2.00",
+    "info" : {
+        "title" : "The Bad Bank API",
+        "description" : "It's a API that serve to The-Bad-Bank app",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host" : "localhost:3001",
+    "basepath" : "/",
+    "tags": [
+        {
+            "name": "User",
+            "description": "API for manage user's info"
+        },
+        {
+            "name": "Account",
+            "description": "API for manage account's info"
+        },
+        {
+            "name": "Transaction",
+            "description": "API for manage Transactions's info"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/user/create/{name}/{email}/{password}" : {
+            "get":{
+                "tags": ["User"],
+                "summary": "Create a new user",
+                "parameters": [
+                    {
+                        "name" : "name",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's name",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "email",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's email",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "password",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's password",
+                        "type" : "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        },
+        "/user/login/{email}/{password}" : {
+            "get":{
+                "tags": ["User"],
+                "summary": "Login to Bad Bank",
+                "parameters": [
+                    {
+                        "name" : "email",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's email",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "password",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's password",
+                        "type" : "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        },
+        "/account/update/{userId}/{accountNumber}/{amount}" : {
+            "get":{
+                "tags": ["Account"],
+                "summary": "Login to Bad Bank",
+                "parameters": [
+                    {
+                        "name" : "userId",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's id",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "accountNumber",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's account number",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "amount",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "Amount",
+                        "type" : "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        },
+        "/account/transfer/{userId}/{accountNumber}/{amount}/{recipientAccountNumber}" : {
+            "get":{
+                "tags": ["Account"],
+                "summary": "Transfer a amount to another account",
+                "parameters": [
+                    {
+                        "name" : "userId",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's id",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "accountNumber",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's account number",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "amount",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "Amount",
+                        "type" : "number"
+                    },
+                    {
+                        "name" : "recipientAccountNumber",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's account number",
+                        "type" : "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        },
+        "/account/list/{userId}" : {
+            "get":{
+                "tags": ["Account"],
+                "summary": "Transfer a amount to another account",
+                "parameters": [
+                    {
+                        "name" : "userId",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's id",
+                        "type" : "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        },
+        "/account/exists/{accountNumber}" : {
+            "get":{
+                "tags": ["Account"],
+                "summary": "Verify if the account exists.",
+                "parameters": [
+                    {
+                        "name" : "accountNumber",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "Account Number",
+                        "type" : "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        },
+        "/transaction/all/{userId}" : {
+            "get":{
+                "tags": ["Transaction"],
+                "summary": "Get all user's transactions",
+                "parameters": [
+                    {
+                        "name" : "userId",
+                        "in" : "path",
+                        "required" : true,
+                        "description" : "User's id",
+                        "type" : "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                        
+                    }
+                }
+            }
+        }
+    }
+}
